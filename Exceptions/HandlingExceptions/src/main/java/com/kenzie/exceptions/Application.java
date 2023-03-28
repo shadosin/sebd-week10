@@ -50,7 +50,7 @@ try {
 
     //END BLOCK
 }catch(Exception e){
-    e.getMessage();
+    System.out.println(e.getMessage());
 }
     }
 
