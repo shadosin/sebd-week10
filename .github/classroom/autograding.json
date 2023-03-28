@@ -1,0 +1,34 @@
+{
+  "tests": [
+    {
+      "name": "Files Application Test",
+      "setup": "",
+      "run": "./gradlew files-application-test --rerun-tasks",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": null
+    },
+    {
+      "name": "Exceptions Application Test",
+      "setup": "",
+      "run": "./gradlew exceptions-application-test --rerun-tasks",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": null
+    },
+    {
+      "name": "CustomEmptyStringException Tests",
+      "setup": "",
+      "run": "./gradlew exceptions-customemptystringexception-test --rerun-tasks",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": null
+    }
+  ]
+}
