@@ -159,7 +159,7 @@ public class ApplicationTest {
 
                 String output = outContent.toString();
 
-                assertThat(output, containsString("Number must be between 1 and 3") );
+                assertThat(output, containsString("Enter a number between 1-3:") );
             }
             catch(Exception e) {
                 assertFalse(true, "Something went wrong while running your test, See Exception thrown:" + e.getMessage());

@@ -3,21 +3,26 @@ package com.kenzie.supportingmaterials.exceptions;
 public class CustomExceptionPractice {
 
     public static int doMath() {
-        int a = 5;
-        int b = 0;
-        int c;
+      try {
+          int a = 5;
+          int b = 0;
+          int c;
 
-        // TODO Write a try/catch around this line
+          // TODO Write a try/catch around this line
 
-        c = a / b;
+          c = a / b;
 
-        return c;
+          return c;
+      }catch(Exception e){
+          return 0;
+      }
     }
 
     public static void makeDeposit(double amount) {
         if (amount >= 0 ){
             System.out.println("Deposit complete.");
         } else {
+            throw new NegativeAmountException("Negative dollar amount entered:[ " + amount + "]");
             // TODO Create a custom exception in a different file
             //      Throw that exception here
         }
@@ -25,7 +30,7 @@ public class CustomExceptionPractice {
 
     public static void main(String[] args) {
 
-        /* Use for makeDeposit()
+        /* Use for makeDeposit()*/
         try {
             // Change this value to test
             makeDeposit(-1.00);
@@ -33,10 +38,10 @@ public class CustomExceptionPractice {
         catch (Exception e) {
             System.out.println(e.getMessage());
         }
-         */
 
-        /* Use for doMath()
+
+        /* Use for doMath()*/
         doMath();
-         */
+
     }
 }

@@ -11,18 +11,20 @@ import java.util.Scanner;
 public class Application {
     public static final String FORTUNE_FILENAME = "fortunes.txt";
 
-    public static void main(String args[]){
+    public static void main(String args[])  {
         //TODO: Wrap the main code in a try/catch statement
+try {
+    //DO NOT MODIFY THIS BLOCK
+    Scanner scan = new Scanner(System.in);
+    String input;
+    int numberInput = 0;
+    boolean needInput = true;
+    //END BLOCK
 
-        //DO NOT MODIFY THIS BLOCK
-        Scanner scan = new Scanner(System.in);
-        String input;
-        int numberInput = 0;
-        boolean needInput = true;
-        //END BLOCK
 
-        //Read in user input - loop until user enters correct input
-        while (needInput) {
+    //Read in user input - loop until user enters correct input
+    while (needInput) {
+        try {
             //TODO: wrap the code inside the while event loop with a try/catch block
             displayMenu();
             input = scan.nextLine();
@@ -31,20 +33,29 @@ public class Application {
             if (numberInput > 0) {
                 needInput = false;
             }
+        } catch (CustomEmptyStringException | NumberFormatException e) {
+            System.out.println("Non-numeric string was entered. Please try again");
         }
+    }
 
 
-        //DO NOT MODIFY THIS BLOCK
-        //Check user input for valid number value
-        isInputValid(numberInput);
 
-        //Selects and displays fortune based on number found
+    //DO NOT MODIFY THIS BLOCK
+    //Check user input for valid number value
+    isInputValid(numberInput);
+
+    //Selects and displays fortune based on number found
+
         displayResult(numberInput);
-        //END BLOCK
+
+    //END BLOCK
+}catch(Exception e){
+    e.getMessage();
+}
     }
 
     // TODO: throw correct exceptions in method signature
-    private static void displayResult(int number)  {
+    private static void displayResult(int number) throws IOException {
         // display result
         switch (number) {
             case 1:
@@ -71,18 +82,24 @@ public class Application {
     }
 
     // this method will be coded to throw a standard exception
-    public static boolean isInputValid(int cleanNumber){
+    public static boolean isInputValid(int cleanNumber) throws IllegalArgumentException {
         // TODO: fill in this method; throw IllegalArgumentException if the number is invalid
         // otherwise return true
+        if (cleanNumber > 0 && cleanNumber <= 3)
+            return true;
+        else {
 
-        return false;  //replace when writing method
+            throw new IllegalArgumentException("Number must be between 1 and 3");//replace when writing method
+        }
     }
 
     // Use this method to throw a custom Exception of type CustomWhiteSpaceException
     // With message: "Invalid input: Empty string entered."
-    public static void checkForEmptyString(String input){
+    public static void checkForEmptyString(String input) throws CustomEmptyStringException{
         // TODO: fill in this method; throw CustomEmptyStringException if the input is empty string
-
+        if(input.isEmpty()){
+            throw new CustomEmptyStringException("Invalid input: Empty string entered.");
+        }
     }
 
 
