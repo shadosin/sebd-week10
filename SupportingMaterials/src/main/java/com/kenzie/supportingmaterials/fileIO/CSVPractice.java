@@ -13,31 +13,30 @@ public class CSVPractice {
         System.out.println(Files.readString(filePath));
 
         // TODO call readEachLine
+
     }
 
     public static void readEachLine(String csvContent){
         // Split the content line by line
+        String[] csvLines = csvContent.split("\n");
         // String[] csvLines = ... ;
 
         // Get each of the column names from the header (first line)
         // String[] headers = ... ;
+        String[] headers = csvLines[0].split(",");
 
         // Loop through each line of the CSV file, starting AFTER the header at index 1
-        // for (int i = 1; i < csvLines.length; i++) {
-            // Get a line of data
-            // String dataItem = ... ;
+         for (int i = 1; i < csvLines.length; i++) {
+             // Get a line of data
+             String dataItem = csvLines[i];
+             // Turn the string into an array
+             String[] dataArray = dataItem.split(",");
+             for(int j = 0; j < headers.length; j++){
+                 System.out.println(headers[j] + ": " + dataArray[j]);
+             }
+             System.out.println("");
+         }
 
-            // Turn the string into an array
-            // String[] dataArray = ... ;
-
-            // Print the column name next to its value
-            // We are using j, the "column" index to get the elements in the same place from the header
-            // for(int j = 0; j < headers.length; j++){
-                // System.out.println(headers[j] + ": " + dataArray[j]);
-            // }
-
-            // Print a blank line after printing the whole data item
-            // System.out.println("");
     }
 
     public static void practiceTwo() throws IOException {
@@ -78,6 +77,9 @@ public class CSVPractice {
             for(int j = 0; j < row.size(); j++) {
                 String column = row.get(j);
                 result.append(column);
+                if(j == 0){
+                    result.append("+");
+                }
             }
             result.append("\n");
         }
@@ -85,5 +87,6 @@ public class CSVPractice {
     }
 
     public static void main(String[] args) throws IOException {
+        practiceTwo();
     }
 }

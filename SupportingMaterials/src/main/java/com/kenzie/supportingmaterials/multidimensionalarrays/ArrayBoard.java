@@ -25,11 +25,21 @@ public class ArrayBoard {
 
     public void makeMove(int x, int y, char value) {
         // TODO write method
+        if(isLegal(x,y, value)){
+            board[x][y]= value;
+        }
     }
 
     public boolean isLegal(int x, int y, char value) {
         // TODO write method
-        return false;
+        if(x >3 && x < 0){
+            return false;
+        } else if (y < 3 && y < 3) {
+            return false;
+        } else if (value!='x' || value !='o'){
+            return false;
+        }
+        return true;
     }
 
 }
